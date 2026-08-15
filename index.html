@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Zimuch Travels | Your Journey, Our Priority</title>
+
+    <meta
+      name="description"
+      content="Zimuch Travels provides reliable travel assistance, flight quotes and booking support for domestic and international journeys."
+    />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- =========================================
+         NAVBAR
+    ========================================== -->
+
+    <header class="navbar">
+      <div class="nav-container">
+        <a href="#" class="logo">
+          <!-- Temporary logo until client provides one -->
+          <div class="logo-icon">
+            <i class="fa-solid fa-plane-departure"></i>
+          </div>
+
+          <div class="logo-text">
+            <strong>ZIMUCH</strong>
+            <span>TRAVELS</span>
+          </div>
+        </a>
+
+        <nav class="nav-links">
+          <a href="#home" class="active">Home</a>
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#destinations">Destinations</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <a href="#booking" class="nav-quote">
+          <i class="fa-solid fa-plane"></i>
+          Get Quote
+        </a>
+
+        <button class="menu-button" aria-label="Open menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- =========================================
+         HERO
+    ========================================== -->
+
+    <main>
+      <section class="hero" id="home">
+        <!-- Background overlay -->
+        <div class="hero-overlay"></div>
+
+        <!-- Animated decorative elements -->
+        <div class="hero-cloud cloud-one"></div>
+        <div class="hero-cloud cloud-two"></div>
+
+        <!-- Flying plane -->
+        <div class="flying-plane">
+          <i class="fa-solid fa-plane"></i>
+        </div>
+
+        <div class="hero-container">
+          <!-- HERO TEXT -->
+
+          <div class="hero-content">
+            <span class="hero-label"> Your Trusted Travel Partner </span>
+
+            <h1>
+              Your Journey,
+              <span>Our Priority</span>
+            </h1>
+
+            <p>
+              Find your next journey with Zimuch Travels. Simple, reliable
+              travel assistance at your fingertips.
+            </p>
+
+            <a href="#booking" class="hero-cta">
+              <span>
+                <i class="fa-solid fa-plane"></i>
+                Get a Quote
+              </span>
+
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <!-- =========================================
+                     BOOKING / QUOTE FORM
+                ========================================== -->
+
+          <div class="booking-card" id="booking">
+            <!-- Trip Type -->
+
+            <div class="trip-toggle">
+              <button
+                type="button"
+                class="trip-button active"
+                data-trip="return"
+              >
+                <i class="fa-solid fa-right-left"></i>
+                Return
+              </button>
+
+              <button type="button" class="trip-button" data-trip="one-way">
+                <i class="fa-solid fa-plane"></i>
+                One-way
+              </button>
+            </div>
+
+            <form id="bookingForm">
+              <!-- FROM / TO -->
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="from"> From </label>
+
+                  <div class="input-box">
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    <input
+                      type="text"
+                      id="from"
+                      name="from"
+                      placeholder="City or airport"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="to"> To </label>
+
+                  <div class="input-box">
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    <input
+                      type="text"
+                      id="to"
+                      name="to"
+                      placeholder="City or airport"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <!-- DEPARTURE / RETURN -->
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="departure"> Departure Date </label>
+
+                  <div class="input-box">
+                    <i class="fa-regular fa-calendar"></i>
+
+                    <input
+                      type="date"
+                      id="departureDate"
+                      name="departure"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="form-group" id="returnDateGroup">
+                  <label for="return"> Return Date </label>
+
+                  <div class="input-box">
+                    <i class="fa-regular fa-calendar"></i>
+
+                    <input type="date" id="returnDate" name="return" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- PASSENGERS / CABIN -->
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="passengers"> Passengers </label>
+
+                  <div class="input-box">
+                    <i class="fa-solid fa-user-group"></i>
+
+                    <select id="passengers" name="passengers">
+                      <option value="1">1 Adult</option>
+
+                      <option value="2">2 Adults</option>
+
+                      <option value="3">3 Adults</option>
+
+                      <option value="4">4 Adults</option>
+
+                      <option value="5">5 Adults</option>
+
+                      <option value="6">6 Adults</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="cabin"> Cabin </label>
+
+                  <div class="input-box">
+                    <i class="fa-solid fa-chair"></i>
+
+                    <select id="cabin" name="cabin">
+                      <option value="economy">Economy</option>
+
+                      <option value="premium">Premium Economy</option>
+
+                      <option value="business">Business</option>
+
+                      <option value="first">First Class</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- CUSTOMER DETAILS -->
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name"> Your Name </label>
+
+                  <div class="input-box">
+                    <i class="fa-regular fa-user"></i>
+
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      placeholder="Full name"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="email"> Email </label>
+
+                  <div class="input-box">
+                    <i class="fa-regular fa-envelope"></i>
+
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      placeholder="you@example.com"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <!-- PHONE -->
+
+              <div class="form-group">
+                <label for="phone"> Phone / WhatsApp </label>
+
+                <div class="input-box">
+                  <i class="fa-brands fa-whatsapp"></i>
+
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="+234 801 234 5678"
+                    required
+                  />
+                </div>
+              </div>
+
+              <!-- SUBMIT -->
+
+              <button type="submit" class="quote-button">
+                <i class="fa-solid fa-plane"></i>
+
+                REQUEST FLIGHT QUOTE
+
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================
+             POPULAR DESTINATIONS
+        ========================================== -->
+
+      <section class="destinations" id="destinations">
+        <div class="section-heading">
+          <span>EXPLORE THE WORLD</span>
+
+          <h2>Popular Destinations</h2>
+
+          <p>Explore the world with Zimuch Travels.</p>
+        </div>
+
+        <div class="destination-grid">
+          <article class="destination-card">
+            <div class="destination-image lagos"></div>
+
+            <div class="destination-info">
+              <h3>Lagos, Nigeria</h3>
+
+              <p>Culture · Business · Lifestyle</p>
+
+              <button>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </article>
+
+          <article class="destination-card">
+            <div class="destination-image london"></div>
+
+            <div class="destination-info">
+              <h3>London, United Kingdom</h3>
+
+              <p>History · Culture · Opportunities</p>
+
+              <button>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </article>
+
+          <article class="destination-card">
+            <div class="destination-image dubai"></div>
+
+            <div class="destination-info">
+              <h3>Dubai, UAE</h3>
+
+              <p>Luxury · Business · Leisure</p>
+
+              <button>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </article>
+
+          <article class="destination-card">
+            <div class="destination-image new-york"></div>
+
+            <div class="destination-info">
+              <h3>New York, USA</h3>
+
+              <p>Dream · Explore · Experience</p>
+
+              <button>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- =========================================
+             WHY ZIMUCH
+        ========================================== -->
+
+      <section class="why-zimuch" id="about">
+        <div class="section-heading">
+          <span>WHY CHOOSE US</span>
+
+          <h2>Why Travel With Zimuch?</h2>
+
+          <p>We make your travel experience smooth, easy and stress-free.</p>
+        </div>
+
+        <div class="benefits-grid">
+          <article class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fa-solid fa-user"></i>
+            </div>
+
+            <h3>Personalized Travel Assistance</h3>
+
+            <p>Tailored travel solutions for your unique needs.</p>
+          </article>
+
+          <article class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fa-solid fa-headset"></i>
+            </div>
+
+            <h3>Dedicated Customer Support</h3>
+
+            <p>We're here for you, every step of the way.</p>
+          </article>
+
+          <article class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fa-solid fa-globe"></i>
+            </div>
+
+            <h3>Domestic & International</h3>
+
+            <p>Travel anywhere with confidence.</p>
+          </article>
+
+          <article class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+
+            <h3>Reliable Booking Assistance</h3>
+
+            <p>Safe, secure and dependable service.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- =========================================
+             HOW IT WORKS
+        ========================================== -->
+
+      <section class="how-it-works" id="services">
+        <div class="section-heading">
+          <span>SIMPLE PROCESS</span>
+
+          <h2>How It Works</h2>
+
+          <p>Booking your next trip with Zimuch is simple.</p>
+        </div>
+
+        <div class="steps-container">
+          <article class="step">
+            <div class="step-number">1</div>
+
+            <h3>Share Your Details</h3>
+
+            <p>Tell us where you're going and your travel needs.</p>
+          </article>
+
+          <div class="step-arrow">
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+
+          <article class="step">
+            <div class="step-number">2</div>
+
+            <h3>We Find the Best Options</h3>
+
+            <p>We search for the best options for you.</p>
+          </article>
+
+          <div class="step-arrow">
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+
+          <article class="step">
+            <div class="step-number">3</div>
+
+            <h3>Get Your Quote</h3>
+
+            <p>We send you a clear quote with all details.</p>
+          </article>
+
+          <div class="step-arrow">
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+
+          <article class="step">
+            <div class="step-number">4</div>
+
+            <h3>Travel With Confidence</h3>
+
+            <p>You book, we handle the rest.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- =========================================
+             FINAL CTA
+        ========================================== -->
+
+      <section class="final-cta">
+        <div>
+          <h2>Ready to Plan Your Next Journey?</h2>
+
+          <p>Let Zimuch Travels help you get there.</p>
+        </div>
+
+        <a href="#booking" class="cta-button">
+          <i class="fa-solid fa-plane"></i>
+
+          GET A QUOTE
+
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </section>
+    </main>
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer id="contact">
+      <div class="footer-container">
+        <div class="footer-brand">
+          <div class="logo">
+            <div class="logo-icon">
+              <i class="fa-solid fa-plane-departure"></i>
+            </div>
+
+            <div class="logo-text">
+              <strong>ZIMUCH</strong>
+
+              <span>TRAVELS</span>
+            </div>
+          </div>
+
+          <p>Your Journey, Our Priority</p>
+        </div>
+
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#destinations">Destinations</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <div class="social-links">
+          <a href="#" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+
+          <a href="#" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+
+          <a href="#" aria-label="WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+
+          <a href="#" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Zimuch Travels. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+  </body>
+</html>
