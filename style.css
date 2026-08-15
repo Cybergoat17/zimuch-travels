@@ -1657,3 +1657,177 @@ background-image: url("images/hero.jpg");
     }
 
 }
+/* =========================================
+   CTA SECTION
+========================================= */
+
+.travel-cta {
+    position: relative;
+
+    padding: 90px 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #092c70,
+            #116bb5
+        );
+
+    overflow: hidden;
+}
+
+
+/* Decorative circles */
+
+.travel-cta::before {
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    top: -150px;
+    right: 8%;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.06);
+}
+
+
+.travel-cta::after {
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    bottom: -120px;
+    left: 5%;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.05);
+}
+
+
+.cta-container {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 850px;
+
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+
+.cta-label {
+    display: inline-block;
+
+    margin-bottom: 14px;
+
+    color: #8ed3ff;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+
+.cta-content h2 {
+    margin-bottom: 16px;
+
+    color: #ffffff;
+
+    font-size: clamp(36px, 5vw, 52px);
+
+    font-weight: 800;
+
+    line-height: 1.1;
+
+    letter-spacing: -1.5px;
+}
+
+
+.cta-content h2 span {
+    color: #8ed3ff;
+}
+
+
+.cta-content p {
+    max-width: 570px;
+
+    margin: 0 auto 28px;
+
+    color: rgba(255, 255, 255, 0.78);
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* CTA BUTTON */
+
+.cta-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 14px 24px;
+
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    color: #092c70;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.cta-button:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.18);
+}
+
+
+.cta-button i {
+    font-size: 10px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .travel-cta {
+        padding: 75px 20px;
+    }
+
+    .cta-content h2 {
+        font-size: 36px;
+    }
+
+    .cta-content p {
+        font-size: 13px;
+    }
+
+}
