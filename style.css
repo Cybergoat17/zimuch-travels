@@ -2114,3 +2114,65 @@ background-image: url("images/hero.jpg");
     }
 
 }
+/* =========================================
+   MOBILE NAVIGATION
+========================================= */
+
+@media (max-width: 768px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .nav-links.mobile-open {
+        display: flex;
+
+        position: absolute;
+
+        top: 100%;
+        left: 0;
+        right: 0;
+
+        flex-direction: column;
+
+        padding: 20px;
+
+        background: #ffffff;
+
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+
+        z-index: 999;
+    }
+
+    .nav-links.mobile-open a {
+        display: block;
+
+        width: 100%;
+
+        padding: 13px 10px;
+
+        color: #092c70;
+    }
+
+    .nav-links.mobile-open a:hover {
+        color: #1683d5;
+    }
+
+    .menu-button {
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        cursor: pointer;
+
+        border: none;
+
+        background: transparent;
+
+        color: #092c70;
+
+        font-size: 24px;
+    }
+
+}

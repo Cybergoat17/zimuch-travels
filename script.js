@@ -1,3 +1,24 @@
+// =========================================
+// MOBILE NAVIGATION
+// =========================================
+
+const menuButton = document.getElementById("menuButton");
+const navLinks = document.querySelector(".nav-links");
+
+if (menuButton && navLinks) {
+  menuButton.addEventListener("click", () => {
+    navLinks.classList.toggle("mobile-open");
+    menuButton.classList.toggle("active");
+  });
+
+  // Close menu after clicking a navigation link
+  navLinks.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("mobile-open");
+      menuButton.classList.remove("active");
+    });
+  });
+}
 document.addEventListener("DOMContentLoaded", () => {
   /* =========================================
        BOOKING FORM ELEMENTS
