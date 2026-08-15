@@ -237,10 +237,10 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("Zimuch booking:", bookingData);
 
     /* =================================
-               SUCCESS MESSAGE
-            ================================= */
+       SUCCESS MESSAGE
+================================= */
 
-    showSuccess(`Thanks ${name}! Your flight quote request has been received.`);
+    showSuccess(bookingData);
 
     /*
      * Later we'll replace this with:
@@ -279,19 +279,99 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =========================================
        SUCCESS MESSAGE
     ========================================= */
+  function showSuccess(bookingData) {
+    if (!bookingForm) return;
 
-  function showSuccess(message) {
-    removeMessages();
+    const bookingReference =
+      "ZM-" + Math.floor(100000 + Math.random() * 900000);
 
-    const messageBox = document.createElement("div");
+    bookingForm.innerHTML = `
+    <div class="booking-success">
 
-    messageBox.className = "form-message success";
+      <div class="success-icon">
+        <i class="fa-solid fa-check"></i>
+      </div>
 
-    messageBox.textContent = message;
+      <h3>Request Received!</h3>
 
-    bookingForm?.prepend(messageBox);
+      <p class="success-intro">
+        Thanks <strong>${bookingData.name}</strong>.<br>
+        Your flight quote request has been received.
+      </p>
+
+      <div class="booking-reference">
+        <span>Request Reference</span>
+        <strong>${bookingReference}</strong>
+      </div>
+
+      <div class="booking-summary">
+
+        <div>
+          <span>Trip</span>
+          <strong>
+            ${bookingData.from} → ${bookingData.to}
+          </strong>
+        </div>
+
+        <div>
+          <span>Departure</span>
+          <strong>
+            ${bookingData.departureDate}
+          </strong>
+        </div>
+
+        ${
+          bookingData.tripType === "return"
+            ? `
+              <div>
+                <span>Return</span>
+                <strong>
+                  ${bookingData.returnDate}
+                </strong>
+              </div>
+            `
+            : ""
+        }
+
+        <div>
+          <span>Passengers</span>
+          <strong>
+            ${bookingData.passengers}
+          </strong>
+        </div>
+
+        <div>
+          <span>Cabin</span>
+          <strong>
+            ${bookingData.cabin}
+          </strong>
+        </div>
+
+      </div>
+
+      <p class="booking-note">
+        This is a flight quote request, not a confirmed ticket.
+        A Zimuch Travels representative will contact you with
+        available options and pricing.
+      </p>
+
+      <button
+        type="button"
+        class="new-request-button"
+      >
+        <i class="fa-solid fa-rotate-left"></i>
+        Make Another Request
+      </button>
+
+    </div>
+  `;
+
+    const newRequestButton = bookingForm.querySelector(".new-request-button");
+
+    newRequestButton?.addEventListener("click", () => {
+      window.location.reload();
+    });
   }
-
   /* =========================================
        REMOVE OLD MESSAGES
     ========================================= */
