@@ -134,7 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
        FORM SUBMISSION
     ========================================= */
 
-  bookingForm?.addEventListener("submit", (event) => {
+  bookingForm?.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     /* ---------------------------------
@@ -236,11 +236,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
     console.log("Zimuch booking:", bookingData);
 
-    /* =================================
-       SUCCESS MESSAGE
-================================= */
+    try {
+      const response = await fetch("/.netlify/functions/booking", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(bookingData),
+      });
 
-    showSuccess(bookingData);
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || "Unable to submit booking.");
+      }
+
+      console.log("Booking saved:", result);
+
+      showSuccess(bookingData, result.reference);
+    } catch (error) {
+      console.error("Booking submission error:", error);
+
+      showError("We couldn't submit your request right now. Please try again.");
+    }
 
     /*
      * Later we'll replace this with:
@@ -279,11 +297,8 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =========================================
        SUCCESS MESSAGE
     ========================================= */
-  function showSuccess(bookingData) {
+  function showSuccess(bookingData, bookingReference) {
     if (!bookingForm) return;
-
-    const bookingReference =
-      "ZM-" + Math.floor(100000 + Math.random() * 900000);
 
     bookingForm.innerHTML = `
     <div class="booking-success">
@@ -342,9 +357,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
         <div>
           <span>Cabin</span>
-          <strong>
-            ${bookingData.cabin}
-          </strong>
+         <strong>
+  ${
+    bookingData.cabin === "first"
+      ? "First Class"
+      : bookingData.cabin === "premium"
+        ? "Premium Economy"
+        : bookingData.cabin === "business"
+          ? "Business"
+          : bookingData.cabin === "economy"
+            ? "Economy"
+            : bookingData.cabin
+  }
+</strong>
         </div>
 
       </div>
